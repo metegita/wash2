@@ -1,11 +1,12 @@
-import Navbar from './Compo/Navbar'
-import Hero from './Compo/Hero'
-import Service from './Compo/Services'
-import AboutUs from './Compo/Aboutus'
-import Steps from './Compo/Steps'
-import AppDownlode from './Compo/Appdownlode'
-import ContactUs from './Compo/Contactus'
-import Footer from './Compo/Footer'
+import React from 'react';
+import Navbar from './Compo/Navbar';
+import Hero from './Compo/Hero';
+import Service from './Compo/Services';
+import AboutUs from './Compo/Aboutus';
+import Steps from './Compo/Steps';
+import AppDownlode from './Compo/Appdownlode';
+import ContactUs from './Compo/Contactus';
+import Footer from './Compo/Footer';
 
 function App() {
   return (

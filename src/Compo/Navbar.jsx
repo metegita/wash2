@@ -21,7 +21,7 @@ export default function Navbar() {
                             <Link
                                 to={section}
                                 smooth={true}
-                                duration={500}
+                                duration={100}
                                 offset={-70}
                                 className="cursor-pointer hover:text-blue-500 capitalize"
                             >
@@ -33,8 +33,11 @@ export default function Navbar() {
 
                 {/* Desktop Button */}
                 <Link
-                    to="/download" // Replace with your actual route
-                    className="hidden md:block text-sm text-blue-500 border border-blue-400 px-4 py-1 rounded hover:bg-blue-50 transition"
+                    to="download"
+                    smooth={true}
+                    duration={800}
+                    offset={-70}
+                    className="hidden md:block text-sm text-blue-500 border border-blue-400 px-4 py-1 rounded hover:bg-blue-50 transition cursor-pointer"
                 >
                     Download Our App
                 </Link>
@@ -64,7 +67,7 @@ export default function Navbar() {
                             <Link
                                 to={section}
                                 smooth={true}
-                                duration={500}
+                                duration={0.1}
                                 offset={-70}
                                 onClick={() => setIsOpen(false)}
                                 className="block cursor-pointer hover:text-blue-500 capitalize"
@@ -75,8 +78,12 @@ export default function Navbar() {
                     ))}
                     <li>
                         <Link
-                            to="/download" // Replace with your route path
-                            className="block w-full text-blue-500 border border-blue-400 px-4 py-2 rounded hover:bg-blue-50 transition text-center"
+                            to="download"
+                            smooth={true}
+                            duration={800}
+                            offset={-70}
+                            onClick={() => setIsOpen(false)}
+                            className="block w-full text-blue-500 border border-blue-400 px-4 py-2 rounded hover:bg-blue-50 transition text-center cursor-pointer"
                         >
                             Download Our App
                         </Link>
