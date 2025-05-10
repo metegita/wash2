@@ -13,7 +13,7 @@ const images = [img, img1, img2, img3, img4, img5];
 
 export default function LaundryPromo() {
     return (
-        <div className="min-h-screen bg-[#f9fcff] flex flex-col md:flex-row  ">
+        <div className="min-h-screen bg-[#f9fcff] flex flex-col md:flex-row mt-16  ">
             {/* Left Section */}
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center relative space-y-4 px-4 sm:px-6 py-16">
                 {/* Bubble Images */}

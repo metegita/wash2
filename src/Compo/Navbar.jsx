@@ -7,102 +7,82 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#d9f7ff] shadow-md py-3">
-            <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        <nav className="bg-[#d9f7ff] shadow-md fixed top-0 left-0 w-full z-50">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center space-x-2">
                     <img src={img} alt="Logo" className="w-14 h-14" />
                 </div>
 
-                {/* Hamburger Menu for Mobile */}
+                {/* Desktop Navigation */}
+                <ul className="hidden md:flex space-x-10 text-sm font-medium text-gray-700">
+                    {["home", "services", "about", "how-it-works"].map((section) => (
+                        <li key={section}>
+                            <Link
+                                to={section}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
+                                className="cursor-pointer hover:text-blue-500 capitalize"
+                            >
+                                {section.replace("-", " ")}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Desktop Button */}
+                <Link
+                    to="/download" // Replace with your actual route
+                    className="hidden md:block text-sm text-blue-500 border border-blue-400 px-4 py-1 rounded hover:bg-blue-50 transition"
+                >
+                    Download Our App
+                </Link>
+
+                {/* Hamburger */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-2xl text-blue-500 focus:outline-none">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-2xl text-blue-500 focus:outline-none"
+                        aria-label="Toggle Menu"
+                    >
                         {isOpen ? <HiX /> : <HiMenu />}
                     </button>
                 </div>
+            </div>
 
-                {/* Navigation Links */}
-                <ul className="hidden md:flex space-x-10 text-sm font-medium text-gray-700">
+            {/* Animated Mobile Menu */}
+            <div
+                className={`md:hidden transition-all duration-500 ease-in-out ${isOpen
+                    ? 'max-h-[500px] opacity-100 scale-100 translate-y-0'
+                    : 'max-h-0 opacity-0 scale-95 -translate-y-2 pointer-events-none'
+                    } transform origin-top bg-[#d9f7ff]`}
+            >
+                <ul className="px-6 pb-4 pt-2 space-y-4 text-sm font-medium text-gray-700">
+                    {["home", "services", "about", "how-it-works"].map((section) => (
+                        <li key={section}>
+                            <Link
+                                to={section}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
+                                onClick={() => setIsOpen(false)}
+                                className="block cursor-pointer hover:text-blue-500 capitalize"
+                            >
+                                {section.replace("-", " ")}
+                            </Link>
+                        </li>
+                    ))}
                     <li>
                         <Link
-                            to="home"
-                            smooth={true}
-                            duration={500}
-                            className="cursor-pointer text-blue-500"
+                            to="/download" // Replace with your route path
+                            className="block w-full text-blue-500 border border-blue-400 px-4 py-2 rounded hover:bg-blue-50 transition text-center"
                         >
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="services"
-                            smooth={true}
-                            duration={500}
-                            className="cursor-pointer hover:text-blue-500"
-                        >
-                            Services
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="about"
-                            smooth={true}
-                            duration={500}
-                            className="cursor-pointer hover:text-blue-500"
-                        >
-                            About Us
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="how-it-works"
-                            smooth={true}
-                            duration={500}
-                            className="cursor-pointer hover:text-blue-500"
-                        >
-                            How It Works?
+                            Download Our App
                         </Link>
                     </li>
                 </ul>
-
-                {/* App Button */}
-                <button className="hidden md:block text-sm text-blue-500 border border-blue-400 px-4 py-1 rounded hover:bg-blue-50 transition">
-                    Download Our App
-                </button>
             </div>
-
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden px-4 pb-4">
-                    <ul className="space-y-3 text-sm font-medium text-gray-700">
-                        <li>
-                            <Link to="home" smooth={true} duration={500} onClick={() => setIsOpen(false)} className="block text-blue-500">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="services" smooth={true} duration={500} onClick={() => setIsOpen(false)} className="block hover:text-blue-500">
-                                Services
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="about" smooth={true} duration={500} onClick={() => setIsOpen(false)} className="block hover:text-blue-500">
-                                About Us
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="how-it-works" smooth={true} duration={500} onClick={() => setIsOpen(false)} className="block hover:text-blue-500">
-                                How It Works?
-                            </Link>
-                        </li>
-                        <li>
-                            <button className="w-full text-blue-500 border border-blue-400 px-4 py-1 rounded hover:bg-blue-50 transition">
-                                Download Our App
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            )}
         </nav>
     );
 }

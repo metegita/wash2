@@ -1,17 +1,14 @@
 import React from "react";
-import img from '../assets/11.png'
-import img2 from '../assets/12.png'
-
-import img3 from '../assets/13.png'
-
-import img4 from '../assets/14.png'
-
+import img from '../assets/11.png';
+import img2 from '../assets/12.png';
+import img3 from '../assets/13.png';
+import img4 from '../assets/14.png';
 
 const steps = [
     {
         step: "STEP 1",
         title: "Pickup",
-        image: img, // Replace with your image path
+        image: img,
     },
     {
         step: "STEP 2",
@@ -44,20 +41,19 @@ const Steps = () => {
                 {steps.map((step, index) => (
                     <div
                         key={index}
-                        className="bg-white rounded-xl shadow-md p-4 w-full max-w-md text-center"
+                        className="bg-white rounded-xl shadow-md p-4 w-full max-w-md text-center transform transition duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         <p className="text-xl text-blue-500 font-medium mb-1">
                             {step.step}
                         </p>
-                        <h3 className="text-2xl font-semibold text-gray-800">
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-2">
                             {step.title}
                         </h3>
                         <img
                             src={step.image}
                             alt={step.title}
-                            className="h-60 mx-auto object-cover"
+                            className="h-60 mx-auto object-contain"
                         />
-
                     </div>
                 ))}
             </div>

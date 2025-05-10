@@ -34,7 +34,7 @@ export default function Service() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-md"
+                            className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-md group"
                         >
                             <div className="relative">
                                 <img
@@ -42,7 +42,7 @@ export default function Service() {
                                     alt={service.title}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute bottom-0 w-full backdrop-blur-sm bg-gray-300/50 text-black text-left px-4 py-3">
+                                <div className="absolute bottom-0 w-full backdrop-blur-sm bg-gray-300/50 text-black text-left px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <h3 className="text-lg font-bold">{service.title}</h3>
                                     <p className="text-sm">{service.description}</p>
                                 </div>
