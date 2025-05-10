@@ -21,8 +21,6 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from './Store.js'
-// import store from './src/store.js';
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* Wrap Provider inside StrictMode */}
