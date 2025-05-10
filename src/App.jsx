@@ -1,5 +1,5 @@
 import Navbar from './Compo/Navbar'
-import Hero from './Compo/hero'
+import Hero from './Compo/Hero'
 import Service from './Compo/Services'
 import AboutUs from './Compo/Aboutus'
 import Steps from './Compo/Steps'
