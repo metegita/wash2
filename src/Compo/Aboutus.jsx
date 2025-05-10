@@ -20,7 +20,10 @@ const AboutUs = () => {
                     Making Laundry Effortless, Every Day
                 </h3>
                 <p className="text-base mb-6">
-                    At Planetwash Laundry, we believe clean clothes lead to a happier life. With years of experience, eco-friendly solutions, and doorstep service, we’re redefining how you do laundry. From households to businesses, we handle every fabric with care and precision.
+                    At Planetwash Laundry, we believe clean clothes lead to a happier life. With years of experience, eco-friendly solutions, and doorstep service, we’re redefining how you do laundry. From households to businesses, we handle every fabric with care and precision. <br />
+
+                </p>
+                <p className="text-base mb-6 mt-2">                    At Planetwash Laundry, we believe clean clothes lead to a happier life. With years of experience, eco-friendly solutions, and doorstep service, we’re redefining how you do laundry. From households to businesses, we handle every fabric with care and precision.
                 </p>
 
                 <ul className="space-y-3">

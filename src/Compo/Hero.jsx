@@ -20,21 +20,21 @@ export default function LaundryPromo() {
                 <img
                     src={hero}
                     alt="bubbles"
-                    className="absolute top-4 left-4 w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48 opacity-70 z-0"
+                    className="absolute top-4 left-4 w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48 opacity-100 z-0"
                 />
                 <img
                     src={hero2}
                     alt="bubbles"
-                    className="absolute bottom-6 right-6 w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48 opacity-70 z-0"
+                    className="absolute bottom-6 right-6 w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48 opacity-100 z-0"
                 />
 
                 {/* Text Content */}
-                <div className="z-10 text-center sm:text-left">
-                    <h1 className="text-base sm:text-lg md:text-xl lg:text-6xl font-semibold text-gray-800 leading-snug">
+                <div className="z-10 text-center  y-space-3 sm:text-left">
+                    <h1 className="text-base mb-4 sm:text-lg md:text-xl lg:text-6xl font-semibold text-gray-800 leading-snug">
                         Clean Clothes <br className="hidden sm:block" /> Happy Life
                     </h1>
 
-                    <p className="text-xs sm:text-sm text-gray-600 max-w-xs sm:max-w-sm mx-auto sm:mx-0 mt-2">
+                    <p className="text-xs sm:text-sm text-gray-600 max-w-xs sm:max-w-sm mx-auto  mt-4 sm:mx-0 ">
                         Get your laundry picked up, cleaned, and delivered — fast and fresh
                     </p>
 
