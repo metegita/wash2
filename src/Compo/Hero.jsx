@@ -10,13 +10,23 @@ import hero from '../assets/20.png';
 import hero2 from '../assets/21.png';
 
 const images = [img, img1, img2, img3, img4, img5];
+const scrollImages = [...images, ...images];
 
-export default function LaundryPromo() {
+const scrollUpAnimation = {
+    animate: { y: ['0%', '-100%'] },
+    transition: { repeat: Infinity, duration: 12, ease: 'linear' },
+};
+
+const scrollDownAnimation = {
+    animate: { y: ['-100%', '0%'] },
+    transition: { repeat: Infinity, duration: 12, ease: 'linear' },
+};
+
+const LaundryPromo = () => {
     return (
-        <div className="min-h-screen bg-[#f9fcff] flex flex-col md:flex-row pt-16  ">
+        <div className="min-h-screen bg-[#f9fcff] flex flex-col md:flex-row pt-16">
             {/* Left Section */}
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center relative space-y-4 px-4 sm:px-6 py-16">
-                {/* Bubble Images */}
                 <img
                     src={hero}
                     alt="bubbles"
@@ -28,35 +38,26 @@ export default function LaundryPromo() {
                     className="absolute bottom-6 right-6 w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48 opacity-100 z-0"
                 />
 
-                {/* Text Content */}
-                <div className="z-10 text-center  y-space-3 sm:text-left">
+                <div className="z-10 text-center sm:text-left">
                     <h1 className="text-base mb-4 sm:text-lg md:text-xl lg:text-6xl font-semibold text-gray-800 leading-snug">
                         Clean Clothes <br className="hidden sm:block" /> Happy Life
                     </h1>
 
-                    <p className="text-xs sm:text-sm text-gray-600 max-w-xs sm:max-w-sm mx-auto  mt-4 sm:mx-0 ">
+                    <p className="text-xs sm:text-sm text-gray-600 max-w-xs sm:max-w-sm mx-auto mt-4 sm:mx-0">
                         Get your laundry picked up, cleaned, and delivered — fast and fresh
                     </p>
 
-                    <button className="mt-4 bg-blue-300  hover:bg-blue-600 text-white px-4 py-1.5 rounded shadow text-xs sm:text-sm">
+                    <button className="mt-4 bg-blue-300 hover:bg-blue-600 text-white px-4 py-1.5 rounded shadow text-xs sm:text-sm">
                         Download Our App
                     </button>
                 </div>
             </div>
 
-
-
-
-
             {/* Right Section - Marquee */}
             <div className="w-full md:w-1/2 flex gap-4 h-[600px] overflow-hidden px-4">
                 {/* Column 1 - Scroll Up */}
-                <motion.div
-                    className="flex flex-col gap-4"
-                    animate={{ y: ['0%', '-100%'] }}
-                    transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
-                >
-                    {[...images, ...images].map((src, i) => (
+                <motion.div className="flex flex-col gap-4" {...scrollUpAnimation}>
+                    {scrollImages.map((src, i) => (
                         <img
                             key={`up-${i}`}
                             src={src}
@@ -67,12 +68,8 @@ export default function LaundryPromo() {
                 </motion.div>
 
                 {/* Column 2 - Scroll Down */}
-                <motion.div
-                    className="flex flex-col gap-4"
-                    animate={{ y: ['-100%', '0%'] }}
-                    transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
-                >
-                    {[...images, ...images].map((src, i) => (
+                <motion.div className="flex flex-col gap-4" {...scrollDownAnimation}>
+                    {scrollImages.map((src, i) => (
                         <img
                             key={`down-${i}`}
                             src={src}
@@ -84,4 +81,6 @@ export default function LaundryPromo() {
             </div>
         </div>
     );
-}
+};
+
+export default LaundryPromo;

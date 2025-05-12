@@ -1,10 +1,13 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import img from '../assets/18.png';
 import img2 from '../assets/19.png';
+import { Link } from "react-scroll";
+import { Link as RouterLink } from 'react-router-dom'; // Add this at the top
+
 
 export default function Footer() {
     return (
-        <footer className="bg-[#d9f7ff] text-gray-800">
+        <footer className="bg-[#d9f7ff] text-gray-800 scroll-smooth">
             {/* ✅ Mobile Footer */}
             <div className="block md:hidden px-6 pt-8 pb-4">
                 <div className="flex justify-between items-start mb-4">
@@ -15,9 +18,9 @@ export default function Footer() {
                     <div className="text-right">
                         <h4 className="font-semibold mb-2">Check us out</h4>
                         <div className="flex justify-end space-x-4 text-blue-800 text-lg">
-                            <FaFacebookF />
-                            <FaInstagram />
-                            <FaLinkedinIn />
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
                         </div>
                     </div>
                 </div>
@@ -34,13 +37,13 @@ export default function Footer() {
 
                     <div>
                         <h4 className="font-semibold text-base mb-1">About us</h4>
-                        <p>About us</p>
-                        <p>Contact us</p>
+                        <a href="#about" className="hover:underline block">About us</a>
+                        <a href="#contact" className="hover:underline block">Contact us</a>
                     </div>
 
                     <div>
                         <h4 className="font-semibold text-base mb-1">Company</h4>
-                        <p>How it works</p>
+                        <a href="#how-it-works" className="hover:underline text-blue-500 block">How it works</a>
                     </div>
                 </div>
 
@@ -55,10 +58,9 @@ export default function Footer() {
                         © 2025 Planetwash. All rights reserved.
                     </p>
                 </div>
-
             </div>
 
-            {/* ✅ Desktop Footer (your original) */}
+            {/* ✅ Desktop Footer */}
             <div className="hidden md:block">
                 <div className="max-w-7xl px-6 py-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center md:text-left">
                     <div className="flex flex-col items-center md:items-start">
@@ -66,23 +68,67 @@ export default function Footer() {
                         <h3 className="font-bold mb-2">PLANETWASH</h3>
                         <p className="text-sm text-blue-500">Fresh, Fast, Flawless Laundry</p>
                     </div>
+
                     <div>
                         <h4 className="font-semibold mb-2">Contact Us</h4>
                         <p className="text-sm">+91 7584561146</p>
                         <p className="text-sm">planetwash21@gmail.com</p>
                         <p className="text-sm">Prozon Mall, Golden City Center</p>
                     </div>
+
                     <div>
                         <h4 className="font-semibold mb-2">About Us</h4>
-                        <ul className="space-y-1 text-sm">
-                            <li>About us</li>
-                            <li>Contact us</li>
+                        <ul className="space-y-1 text-sm flex flex-col">
+                            {/* <li><a href="#about" className="hover:underline">About us</a></li> */}
+                            <Link
+                                to={"about"}
+                                smooth={true}
+                                duration={800}
+                                offset={-70}
+                                className="cursor-pointer hover:text-blue-500 capitalize"
+                            >
+                                About Us       {/* {section.replace("-", " ")} */}
+                            </Link>
+                            <Link
+                                to={"contact"}
+                                smooth={true}
+                                duration={800}
+                                offset={-70}
+                                className="cursor-pointer hover:text-blue-500 capitalize"
+                            >
+                                Contact us       {/* {section.replace("-", " ")} */}
+                            </Link>
+
+                            <li><a href="#contact" className="hover:underline"></a></li>
                         </ul>
                     </div>
+
                     <div>
                         <h4 className="font-semibold mb-2">Company</h4>
-                        <p className="text-sm">How it works</p>
+                        <ul className="space-y-1">
+                            <li>
+                                <Link
+                                    to="how-it-works"
+                                    smooth={true}
+                                    duration={800}
+                                    offset={-70}
+                                    className="cursor-pointer hover:text-blue-500 capitalize"
+                                >
+                                    How It Works
+                                </Link>
+                            </li>
+                            <li>
+                                <RouterLink
+                                    to="/privacy-policy"
+                                    className="cursor-pointer hover:text-blue-500 capitalize"
+                                >
+                                    Privacy Policy
+                                </RouterLink>
+                            </li>
+                        </ul>
                     </div>
+
+
                     <div>
                         <h4 className="font-semibold mb-2">Services</h4>
                         <ul className="space-y-1 text-sm">
@@ -91,12 +137,13 @@ export default function Footer() {
                             <li>Iron</li>
                         </ul>
                     </div>
+
                     <div>
                         <h4 className="font-semibold mb-2">Check us out</h4>
-                        <div className="flex justify-center md:justify-start space-x-4 text-blue-800 text-lg">
-                            <FaFacebookF />
-                            <FaInstagram />
-                            <FaLinkedinIn />
+                        <div className="flex justify-center md:justify-start space-x-4 text-lg text-blue-800">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +151,7 @@ export default function Footer() {
                 <hr className="border-t border-gray-300 max-w-6xl mx-auto" />
 
                 <div className="flex flex-col sm:flex-row items-center justify-between px-6 py-4 max-w-7xl mx-auto text-sm text-center sm:text-left gap-2">
-                    <p className="w-full sm:w-auto  text-center ">
+                    <p className="w-full sm:w-auto text-center">
                         © 2025 Planetwash. All rights reserved.
                     </p>
                     <div className="flex items-center justify-center gap-2">

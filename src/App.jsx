@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollSmoother from 'gsap/ScrollSmoother';
@@ -11,12 +13,28 @@ import Steps from './Compo/Steps';
 import AppDownlode from './Compo/Appdownlode';
 import ContactUs from './Compo/Contactus';
 import Footer from './Compo/Footer';
+import PrivacyPolicy from './Compo/Privacy&policy';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export const smootherRef = {
   scrollTo: () => { },
 };
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <div id="home"><Hero /></div>
+      <div id="services"><Service /></div>
+      <div id="about"><AboutUs /></div>
+      <div id="how-it-works"><Steps /></div>
+      <div id="download"><AppDownlode /></div>
+      <div id="contact"><ContactUs /></div>
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   const smoother = useRef();
@@ -52,15 +70,15 @@ function App() {
         overflow: 'hidden',
       }}
     >
+
       <div id="smooth-content">
-        <Navbar />
-        <div id="home"><Hero /></div>
-        <div id="services"><Service /></div>
-        <div id="about"><AboutUs /></div>
-        <div id="how-it-works"><Steps /></div>
-        <div id="download"><AppDownlode /></div>
-        <div id="contact"><ContactUs /></div>
-        <Footer />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="//privacy-policy" element={<PrivacyPolicy />} />
+        </Routes>
+
+
       </div>
     </div>
   );
