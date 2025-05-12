@@ -21,7 +21,7 @@ export default function Navbar() {
                             <Link
                                 to={section}
                                 smooth={true}
-                                duration={100}
+                                duration={800}
                                 offset={-70}
                                 className="cursor-pointer hover:text-blue-500 capitalize"
                             >
@@ -67,7 +67,7 @@ export default function Navbar() {
                             <Link
                                 to={section}
                                 smooth={true}
-                                duration={0.1}
+                                duration={800}
                                 offset={-70}
                                 onClick={() => setIsOpen(false)}
                                 className="block cursor-pointer hover:text-blue-500 capitalize"

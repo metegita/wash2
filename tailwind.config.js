@@ -8,4 +8,10 @@ export default {
     extend: {},
   },
   plugins: [],
-}
+  corePlugins: {
+    preflight: true, // ensure base styles are applied
+  },
+};
+
+
+
